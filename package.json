@@ -1,0 +1,50 @@
+{
+  "name": "advance-concept",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build --turbopack",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "@babylonjs/core": "^8.28.1",
+    "@babylonjs/gui": "^8.28.1",
+    "@babylonjs/loaders": "^8.28.1",
+    "@dimforge/rapier3d": "^0.19.0",
+    "@react-three/cannon": "^6.6.0",
+    "@react-three/drei": "^10.7.6",
+    "@react-three/fiber": "^9.3.0",
+    "@react-three/gltfjsx": "^4.3.4",
+    "@react-three/postprocessing": "^3.0.4",
+    "@react-three/xr": "^6.6.26",
+    "ammo.js": "^0.0.10",
+    "framer-motion": "^12.23.16",
+    "glslify": "^7.1.1",
+    "gsap": "^3.13.0",
+    "next": "15.5.3",
+    "postprocessing": "^6.37.8",
+    "r3f-perf": "^7.2.3",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "three": "^0.180.0",
+    "three-instanced-uniforms-mesh": "^0.52.4",
+    "three-mesh-bvh": "^0.9.1",
+    "three-nebula": "^10.0.3",
+    "three-stdlib": "^2.36.0",
+    "troika-three-text": "^0.52.4",
+    "use-cannon": "^0.5.3"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.5.3",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}
