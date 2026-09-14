@@ -1,4 +1,16 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ThreeJS Shapes
+
+An interactive 3D web experience built with **Next.js**, **Three.js**, and **React Three Fiber** — featuring real-time 3D shapes, physics, and smooth animations.
+
+## Tech Stack
+
+- [Next.js](https://nextjs.org) — React framework
+- [Three.js](https://threejs.org) / [React Three Fiber](https://docs.pmnd.rs/react-three-fiber) — 3D rendering
+- [@react-three/drei](https://github.com/pmndrs/drei) — R3F helpers
+- [@react-three/cannon](https://github.com/pmndrs/use-cannon) — physics
+- [Babylon.js](https://www.babylonjs.com/) — additional 3D tooling
+- [GSAP](https://gsap.com/) / [Framer Motion](https://www.framer.com/motion/) — animations
+- [Tailwind CSS](https://tailwindcss.com/) — styling
 
 ## Getting Started
 
