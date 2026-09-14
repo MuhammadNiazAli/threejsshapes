@@ -23,7 +23,7 @@
     "framer-motion": "^12.23.16",
     "glslify": "^7.1.1",
     "gsap": "^3.13.0",
-    "next": "15.5.3",
+    "next": "15.5.25",
     "postprocessing": "^6.37.8",
     "r3f-perf": "^7.2.3",
     "react": "19.1.0",
@@ -43,7 +43,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "15.5.3",
+    "eslint-config-next": "15.5.25",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
