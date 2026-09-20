@@ -4,8 +4,16 @@ import React, { useRef, useMemo, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import * as THREE from "three";
+import {
+  extraShapes,
+  EXTRA_SHAPE_NAMES,
+  type ExtraShapeType,
+  type ShapeContext,
+  type ShapeFn,
+} from "../shapes";
 
 type ShapeType =
+  | ExtraShapeType
   | "plane"
   | "wave"
   | "sphere"
@@ -638,6 +646,27 @@ const ParticleWave = ({
     return arr;
   }, [segmentsX, segmentsY]);
 
+  // One reusable context object for the modular shape library (see ../shapes).
+  const shapeCtx = useMemo<ShapeContext>(
+    () => ({
+      i: 0,
+      j: 0,
+      u: 0,
+      v: 0,
+      idx: 0,
+      count: segmentsX * segmentsY,
+      x0: 0,
+      z0: 0,
+      time: 0,
+      phase: 0,
+      width,
+      height,
+      segX: segmentsX,
+      segY: segmentsY,
+    }),
+    [width, height, segmentsX, segmentsY]
+  );
+
   const originalPositions = useMemo(() => {
     const arr = new Float32Array(segmentsX * segmentsY * 3);
     let ptr = 0;
@@ -999,8 +1028,22 @@ const ParticleWave = ({
       }
       case "pulse":
         return [x0, Math.sin(time * 5 - i * 0.1) * 2, z0];
-      default:
-        return [x0, 0, z0];
+      default: {
+        const extra = (extraShapes as Record<string, ShapeFn | undefined>)[
+          shape
+        ];
+        if (!extra) return [x0, 0, z0];
+        shapeCtx.i = i;
+        shapeCtx.j = j;
+        shapeCtx.u = u;
+        shapeCtx.v = v;
+        shapeCtx.idx = i * segmentsY + j;
+        shapeCtx.x0 = x0;
+        shapeCtx.z0 = z0;
+        shapeCtx.time = time;
+        shapeCtx.phase = phase;
+        return extra(shapeCtx);
+      }
     }
   };
 
@@ -1163,6 +1206,7 @@ const shapes: ShapeType[] = [
   "galaxy",
   "tornado",
   "pulse",
+  ...EXTRA_SHAPE_NAMES,
 ];
 
 const themes = Object.keys(colorSchemes) as MaterialTheme[];
